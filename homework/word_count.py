@@ -1,5 +1,3 @@
-"""Taller presencial"""
-
 """Taller evaluable"""
 
 # pylint: disable=broad-exception-raised
@@ -124,6 +122,14 @@ def hadoop(input_folder, output_folder, mapper_fn, reducer_fn):
     create_output_directory(output_folder)
     save_results_to_output(result)
     create_success_file(output_folder)
+
+
+def run_job(input_folder, output_folder):
+    initialize_folder("files/input/")
+    delete_folder("files/output/")
+    generate_file_copies(1000)
+
+    hadoop(input_folder, output_folder, mapper, reducer)
 
 
 if __name__ == "__main__":
